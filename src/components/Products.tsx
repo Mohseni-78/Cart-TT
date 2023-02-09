@@ -1,24 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { getProducts } from "../services/api";
+import React, { FC } from "react";
+import { propsProducts } from "../types/type";
 import Product from "./shared/Product";
 
-const Products = () => {
-  const [products, setProducts] = useState([]);
-  useEffect(() => {
-    const fetchApi = async () => {
-      setProducts(await getProducts());
-    };
-    fetchApi();
-  }, []);
-
+const Products: FC<propsProducts> = ({ products }) => {
+  const productData: JSX.Element[] = products.map((item) => (
+    <Product key={item.id} product={item} />
+  ));
   return (
     <>
       <h1 className="text-xl p-5">Store</h1>
-      <div className="grid grid-cols-3 gap-4 p-3">{
-        products.map((item:object)=>(
-            <Product item={item}/>
-        ))
-      }</div>
+      <div className="grid grid-cols-3 gap-2 p-3">{productData}</div>
     </>
   );
 };

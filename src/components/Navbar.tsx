@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { Dispatch, FC, SetStateAction, useState } from "react";
 
-const Navbar = () => {
+interface Iprops {
+  setShowSidebar: Dispatch<SetStateAction<boolean>>;
+}
+const Navbar: FC<Iprops> = ({ setShowSidebar }) => {
   const [cartShow, setCartShow] = useState<boolean>(true);
-  return (
+  const NAVBAR: JSX.Element = (
     <div className="flex justify-around p-5 bg-white shadow-md">
       <ul className="flex">
         <li className="hover:opacity-80 hover:cursor-pointer">Home</li>
@@ -10,6 +13,11 @@ const Navbar = () => {
         <li className="hover:opacity-80 hover:cursor-pointer">About</li>
       </ul>
       <svg
+        onClick={() =>
+          setShowSidebar((prev: boolean) => {
+            return !prev;
+          })
+        }
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
@@ -27,6 +35,7 @@ const Navbar = () => {
       </svg>
     </div>
   );
+  return <>{NAVBAR}</>;
 };
 
 export default Navbar;

@@ -1,3 +1,5 @@
+import { cartState, Iproduct } from "../types/type";
+
 export const splitTitle: Function = (title: string): string => {
   const split = title.split(" ");
   const newTitle = `${split[0]} ${split[1]}`;
@@ -12,13 +14,11 @@ export const numberFormat: Function = (number: number) => {
   return f;
 };
 
-export const quntityCount=(state:any,product:any)=>{
-  const index = state.cartsItem?.findIndex(
-    (item: any) => item.id === product.id
-  );
+export const quntityCount: Function = (state: cartState, product: Iproduct) => {
+  const index = state.cartsItem?.findIndex((item) => item.id === product.id);
   if (index === -1) {
     return false;
   } else {
     return state.cartsItem[index].quantity;
   }
-}
+};

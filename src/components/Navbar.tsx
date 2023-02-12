@@ -8,7 +8,6 @@ interface Iprops {
 const Navbar: FC<Iprops> = ({ setShowSidebar }) => {
   const state: any = useSelector((state: State) => state.cart);
   // console.log(state.sumQuantity);
-  
 
   const [cartShow, setCartShow] = useState<boolean>(true);
   const NAVBAR: JSX.Element = (
@@ -18,13 +17,15 @@ const Navbar: FC<Iprops> = ({ setShowSidebar }) => {
         <li className="mx-5 hover:opacity-80 hover:cursor-pointer">Store</li>
         <li className="hover:opacity-80 hover:cursor-pointer">About</li>
       </ul>
-      <div className="relative hover:opacity-80 hover:cursor-pointer">
+      <div
+        onClick={() =>
+          setShowSidebar((prev: boolean) => {
+            return !prev;
+          })
+        }
+        className="relative hover:opacity-80 hover:cursor-pointer"
+      >
         <svg
-          onClick={() =>
-            setShowSidebar((prev: boolean) => {
-              return !prev;
-            })
-          }
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"

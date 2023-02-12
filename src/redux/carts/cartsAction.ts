@@ -11,7 +11,7 @@ export const AddToCart = (product: Iproduct) => {
   };
 };
 
-export const increase = (product: Iproduct) => {
+export const Increase = (product: Iproduct) => {
   return (dispatch: Dispatch<cartAction>) => {
     dispatch({
       type: ActionTypes.INCREASE,
@@ -20,7 +20,7 @@ export const increase = (product: Iproduct) => {
   };
 };
 
-export const decrease = (product: Iproduct) => {
+export const Decrease = (product: Iproduct) => {
   return (dispatch: Dispatch<cartAction>) => {
     dispatch({
       type: ActionTypes.DECREASE,
@@ -37,4 +37,19 @@ export const RemoveFromCart = (product: Iproduct) => {
     });
   };
 };
-
+export const CheckOut = (product: Iproduct) => {
+  return (dispatch: Dispatch<cartAction>) => {
+    dispatch({
+      type: ActionTypes.CHECK_OUT,
+      payload: product,
+    });
+  };
+};
+export const Clear = (product: Iproduct) => {
+  return (dispatch: Dispatch<cartAction>) => {
+    dispatch({
+      type: ActionTypes.CLEAR,
+      payload: product,
+    });
+  };
+};

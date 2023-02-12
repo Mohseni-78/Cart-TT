@@ -10,7 +10,7 @@ import { ActionTypes } from "../../redux/carts/actionTypes";
 
 const Product: FC<propsProduct> = ({ product }) => {
   const dispatch = useDispatch();
-  const { AddToCart, increase, decrease, RemoveFromCart } = bindActionCreators(
+  const { AddToCart, Increase, Decrease, RemoveFromCart } = bindActionCreators(
     actionCreators,
     dispatch
   );
@@ -39,14 +39,14 @@ const Product: FC<propsProduct> = ({ product }) => {
         <div className="text-center">
           <div className="flex justify-around  text-center mt-4">
             <button
-              onClick={() => increase(product)}
+              onClick={() => Increase(product)}
               className="bg-blue-700 text-white py-1 px-5 rounded-full "
             >
               +
             </button>
             <span>{quntityCount(state, product)} in cart</span>
             <button
-              onClick={() => decrease(product)}
+              onClick={() => Decrease(product)}
               className="bg-blue-700 text-white py-1 px-5 rounded-full "
             >
               -

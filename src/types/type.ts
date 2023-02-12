@@ -19,10 +19,10 @@ export type propsProducts = Omit<IproductProps, "product" | "key">;
 
 export type cartState = {
   cartsItem: Iproduct[];
-  sumQuantity:number
+  sumQuantity: number;
 };
 
 export type cartAction = {
   type: string;
-  payload: Iproduct ;
+  payload: Iproduct;
 };

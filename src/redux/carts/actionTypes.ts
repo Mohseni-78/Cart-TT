@@ -3,4 +3,7 @@ export enum ActionTypes {
   INCREASE = "increase",
   DECREASE = "decrease",
   REMOVE_FROM_CART = "remove_from_cart",
+  CHECK_OUT = "check_out",
+  CLEAR = "clear",
+
 }

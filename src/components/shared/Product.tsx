@@ -14,7 +14,8 @@ const Product: FC<propsProduct> = ({ product }) => {
     actionCreators,
     dispatch
   );
-  const state: State = useSelector((state: State) => state.cart);
+  const state = useSelector((state: State) => state.cart);
+  
 
   const PRODUCT: JSX.Element = (
     <div className="m-auto borde rounded-sm border-2 p-8">

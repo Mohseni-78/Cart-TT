@@ -1,8 +1,12 @@
 export interface Iproduct {
   id: number;
   title: string;
-  price: string;
+  price: number;
+  category: string;
+  description: string;
   image: string;
+  rating: object;
+  quantity: number;
 }
 
 export interface IproductProps {
@@ -12,3 +16,12 @@ export interface IproductProps {
 }
 export type propsProduct = Omit<IproductProps, "products">;
 export type propsProducts = Omit<IproductProps, "product" | "key">;
+
+export type cartState = {
+  cartsItem: Iproduct[] | [];
+};
+
+export type cartAction = {
+  type: string;
+  payload?: Iproduct;
+};
